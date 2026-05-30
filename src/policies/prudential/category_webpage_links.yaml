@@ -1,0 +1,29 @@
+great_eastern:
+  base_url: https://www.greateasternlife.com
+  policies:
+    life_and_health:
+      life_insurance:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Flife-and-health%2Flife-insurance
+      health_insurance:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Flife-and-health%2Fhealth-insurance
+      personal_accident_insurance:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Flife-and-health%2Fpersonal-accident-insurance
+    wealth:
+      retirement_income:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Fwealth%2Fretirement-income
+      wealth_accumulation:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Fwealth%2Fwealth-accumulation
+    lifestyle:
+      travel_insurance:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Flifestyle%2Ftravel
+      car_insurance:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Flifestyle%2Fcar
+      home_insurance:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Flifestyle%2Fhome
+      maid_insurance:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Flifestyle%2Fmaid
+    others:
+      national_schemes:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Fnational-schemes
+      prestige_series:
+        link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html?category=corp-site%3Aproduct-category%2Fprestige-series

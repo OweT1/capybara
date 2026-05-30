@@ -1,0 +1,12 @@
+[project]
+name = "capybara"
+version = "0.1.0"
+description = "Financial Policies of various financial institutions."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "docling>=2.94.0",
+    "loguru>=0.7.3",
+    "selenium>=4.44.0",
+]

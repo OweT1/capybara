@@ -1,0 +1,146 @@
+great_eastern:
+  base_url: https://www.greateasternlife.com
+  policies:
+    life_and_health:
+      life_insurance:
+        gogreat-term-life:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/gogreat-term-life.html
+        great-term:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/great-term.html
+        great-life-multiplier:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/great-life-multiplier.html
+        prestige-legacy-index:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/prestige-legacy-index.html
+        prestige-legacy-advantage:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/prestige-legacy-advantage.html
+        direct-great-term:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/direct-great-term.html
+        direct-great-life-2:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/direct-great-life-2.html
+        great-eastern-cares-term-plan:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/great-eastern-cares-term-plan.html
+        dependants-protection-scheme:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/dependants-protection-scheme.html
+        prestige-life-gold:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/prestige-life-gold.html
+        great-life-advantage:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/great-life-advantage.html
+      health_insurance:
+        great-hospital-cash:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/great-hospital-cash.html
+        great-careshield:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/great-careshield.html
+        great-supremehealth-main:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/great-supremehealth-main.html
+        great-critical-cover:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/great-critical-cover.html
+        great-maternity-care:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/great-maternity-care.html
+        lifesecure:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/lifesecure.html
+        pay-assure:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/pay-assure.html
+        prestigeglobalhealthoptions:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/prestigeglobalhealthoptions.html
+      personal_accident_insurance:
+        great-protector-active:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/personal-accident-insurance/great-protector-active.html
+        great-golden-protector:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/personal-accident-insurance/great-golden-protector.html
+        great-junior-protector:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/personal-accident-insurance/great-junior-protector.html
+        pa-supreme:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/personal-accident-insurance/pa-supreme.html
+        accidentcare-plus-2:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/personal-accident-insurance/accidentcare-plus-2.html
+        prestige-pacare:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/personal-accident-insurance/prestige-pacare.html
+    wealth:
+      retirement_income:
+        great-prime-rewards:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/retirement-income/great-prime-rewards.html
+        great-retire-income:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/retirement-income/great-retire-income.html
+        great-lifetime-payout:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/retirement-income/great-lifetime-payout.html
+      wealth_accumulation:
+        great-invest-advantage:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-invest-advantage.html
+        great-wealth-advantage:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-wealth-advantage.html
+        prestige-index-income:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/prestige-index-income.html
+        great-index-income:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-index-income.html
+        prestige-wealth-legacy:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/prestige-wealth-legacy.html
+        legacy-income:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/legacy-income.html
+        great-prime-rewards:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-prime-rewards.html
+        prestige-life-rewards-series:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/prestige-life-rewards-series.html
+        great-flexi-saver:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-flexi-saver.html
+        great-lifetime-payout:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-lifetime-payout.html
+        great-flexi-cashback:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-flexi-cashback.html
+        great-wealth-multiplier:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-wealth-multiplier.html
+        great-flexi-goal:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-flexi-goal.html
+        prestige-portfolio:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/prestige-portfolio.html
+        great-sp:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-sp.html
+        great-sp-usd:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/great-sp-usd.html
+        investment-linked-funds:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/investment-linked-funds.html
+        greatlink-funds:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/investment-linked-funds/greatlink-funds.html
+        greatlink-dynamic-portfolios:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/investment-linked-funds/greatlink-dynamic-portfolios.html
+        greatlink-sg-physical-gold-fund:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/investment-linked-funds/greatlink-sg-physical-gold-fund.html
+    lifestyle:
+      travel_insurance:
+        great-travelcare:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/travel-insurance/great-travelcare.html
+      car_insurance:
+        drive-and-save-plus:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/car-insurance/drive-and-save-plus.html
+        great-ev-protect:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/car-insurance/great-ev-protect.html
+      home_insurance:
+        great-home-protect:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/home-insurance/great-home-protect.html
+      maid_insurance:
+        great-maid-protect:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/maid-insurance/great-maid-protect.html
+    others:
+      national_schemes:
+        dependants-protection-scheme:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/dependants-protection-scheme.html
+      prestige_series:
+        prestige-index-income:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/prestige-index-income.html
+        prestige-wealth-legacy:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/prestige-wealth-legacy.html
+        legacy-income:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/legacy-income.html
+        prestige-legacy-index:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/prestige-legacy-index.html
+        prestige-legacy-advantage:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/prestige-legacy-advantage.html
+        prestige-life-rewards-series:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/prestige-life-rewards-series.html
+        prestige-portfolio:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/wealth-accumulation/prestige-portfolio.html
+        prestigeglobalhealthoptions:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/prestigeglobalhealthoptions.html
+        prestige-pacare:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/personal-accident-insurance/prestige-pacare.html
+        prestige-life-gold:
+          link: https://www.greateasternlife.com/sg/en/personal-insurance/our-products/life-insurance/prestige-life-gold.html
