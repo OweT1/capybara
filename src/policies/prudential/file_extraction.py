@@ -1,6 +1,7 @@
 from loguru import logger
 from urllib.parse import urljoin
 
+from .constants import PRUDENTIAL_POLICY_LINKS_PATH
 from .helper import (
     download_pdf_file_from_link,
     load_yaml_file,
@@ -25,7 +26,7 @@ def extract_pdf_from_links(links: dict) -> None:
 
 def main():
     logger.info("Loading and extracting PDF files from links...")
-    links = load_yaml_file("src/services/data_extraction/policy_webpage_links.yaml")
+    links = load_yaml_file(PRUDENTIAL_POLICY_LINKS_PATH)
     extract_pdf_from_links(links)
     logger.info("Completed extraction of PDF files from links!")
 

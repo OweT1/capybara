@@ -1,5 +1,6 @@
 from loguru import logger
 
+from .constants import PRUDENTIAL_CATEGORY_LINKS_PATH, PRUDENTIAL_POLICY_LINKS_PATH
 from .helper import (
     load_yaml_file,
     save_dict_to_yaml_file,
@@ -44,16 +45,13 @@ def extract_policy_links_from_category_webpage(category_links: dict) -> dict:
 
 def main():
     logger.info("Extracting links from webpage...")
-    category_webpage_dict = load_yaml_file(
-        "src/services/data_extraction/category_webpage_links.yaml"
-    )
+    category_webpage_dict = load_yaml_file(PRUDENTIAL_CATEGORY_LINKS_PATH)
     policy_webpage_links = extract_policy_links_from_category_webpage(
         category_webpage_dict
     )
 
-    file_output_path = "src/services/data_extraction/policy_webpage_links.yaml"
-    save_dict_to_yaml_file(file_output_path, policy_webpage_links)
-    logger.info("Extracted links and saved to {}!", file_output_path)
+    save_dict_to_yaml_file(PRUDENTIAL_POLICY_LINKS_PATH, policy_webpage_links)
+    logger.info("Extracted links and saved to {}!", PRUDENTIAL_POLICY_LINKS_PATH)
 
 
 if __name__ == "__main__":
