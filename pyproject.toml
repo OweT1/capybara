@@ -11,3 +11,9 @@ dependencies = [
     "pathlib>=1.0.1",
     "selenium>=4.44.0",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=4.6.0",
+    "ruff>=0.15.15",
+]
