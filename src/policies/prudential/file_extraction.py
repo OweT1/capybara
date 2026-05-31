@@ -9,7 +9,7 @@ from .helper import (
   get_name_from_link,
 )
 
-def extract_pdf_from_links(links):
+def extract_pdf_from_links(links: dict) -> None:
   for company, categories in links.items():
     company_url = categories["base_url"]
     for category, subcategories in categories["policies"].items():

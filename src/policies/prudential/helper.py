@@ -1,8 +1,10 @@
 import yaml
 import sys, os
+from typing import Any
 
 from bs4 import BeautifulSoup
 import requests
+from pathlib import Path
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -11,22 +13,21 @@ from selenium.webdriver.chrome.options import Options
 from loguru import logger
 
 # --- General Helper function --- #
-def get_name_from_link(link):
-  return link.split("/")[-1].split(".")[0]
+def get_name_from_link(link: str) -> str:
+  return Path(link).stem
 
 # --- YAML File Helper functions --- #
-def load_yaml_file(file):
-  with open(file, 'r') as f:
-    file_content = yaml.safe_load(f)
-  return file_content
+def load_yaml_file(file_name: str) -> Any:
+  with open(file_name, 'r') as f:
+    return yaml.safe_load(f)
 
-def save_dict_to_yaml_file(file, dict_item):
-  with open(file, 'w') as output_file:
+def save_dict_to_yaml_file(file_name: str, dict_item: dict) -> None:
+  with open(file_name, 'w') as output_file:
     yaml.dump(dict_item, output_file, sort_keys=False, default_flow_style=False)
   logger.info(f"File contents saved to {file}")
 
 # --- BeautifulSoup Scrapping - Static JS --- #
-def get_web_links(link):
+def get_web_links(link: str) -> list[str]:
   response = requests.get(link)
   if response.ok:
     content = BeautifulSoup(response.text, 'html.parser')
@@ -37,7 +38,7 @@ def get_web_links(link):
     raise ValueError("Link not working...")
   return links
 
-def get_pdf_files_from_webpage(link):
+def get_pdf_files_from_webpage(link: str) -> list[str]:
   response = requests.get(link)
   pdf_links = []
   if response.ok:
@@ -49,7 +50,7 @@ def get_pdf_files_from_webpage(link):
         pdf_links.append(href)
   return pdf_links
 
-def download_pdf_file_from_link(link, category, subcategory, policy):
+def download_pdf_file_from_link(link: str, category: str, subcategory: str, policy: str) -> None:
   try:
     response = requests.get(link)
     response.raise_for_status()
@@ -65,7 +66,7 @@ def download_pdf_file_from_link(link, category, subcategory, policy):
     file.write(response.content)
   logger.info(f"File has been downloaded at {output_file_dir}")
 
-def get_text_from_webpage(link):
+def get_text_from_webpage(link: str) -> str:
   try:
     response = requests.get(link)
     response.raise_for_status()
@@ -78,7 +79,7 @@ def get_text_from_webpage(link):
   return full_text
 
 # --- Selenium Scrapping - Dynamic JS --- #
-def get_web_links_js(link):
+def get_web_links_js(link: str) -> list[str]:
   # Chrome Options
   chrome_options = Options()
   chrome_options.add_argument("--headless")

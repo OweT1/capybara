@@ -9,7 +9,7 @@ from .helper import (
   get_web_links_js
 )
 
-def extract_policy_links_from_category_webpage(category_links):
+def extract_policy_links_from_category_webpage(category_links: dict) -> dict:
   output = {}
   for company, files in category_links.items():
     company_url = files['base_url']
