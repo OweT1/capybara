@@ -67,56 +67,22 @@ The guide to do so can be found at https://airflow.apache.org/docs/apache-airflo
 > [!NOTE] Before this, you must ensure that Docker is installed and is running in the background.
 
 From the guide, the first step is to initialise the database, which is done so by doing:
-
-```bash
-docker compose up airflow-init
-```
-
-or the corresponding just command:
-
-```bash
-just airflow-setup
-```
+- ```docker compose up airflow-init``` OR
+- ```just airflow-setup```
 
 From there, you can build the Airflow docker image:
-
-```bash
-  docker compose build
-```
-
-or the corresponding just command:
-
-```bash
-just airflow-build
-```
+- ```docker compose build``` OR
+- ```just airflow-build```
 
 Then you can run the following to start up Airflow:
+- ```docker compose up``` OR
+- ```just airflow-up```
 
-```bash
-docker compose up
-```
-
-or the corresponding just command:
-
-```bash
-just airflow-up
-```
-
-To interact with the service, there are a few ways (https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#accessing-the-environment).
-
-One way would be to access the web UI interface at http://localhost:8080. The default account username is `airflow` with password `airflow`.
+To interact with the service, there are a few ways (https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#accessing-the-environment). One way would be to access the web UI interface at http://localhost:8080. The default account username is `airflow` with password `airflow`.
 
 To tear down the Airflow Docker instance, you can do:
-
-```bash
-docker compose down -v --rmi all
-```
-
-or the corresponding just command:
-
-```bash
-just airflow-down
-```
+- ```docker compose down -v --rmi all``` OR
+- ```just airflow-down```
 
 ## Development 🛠️
 
