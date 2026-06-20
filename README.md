@@ -17,7 +17,7 @@ uv sync --all-extras # Install necessary dependencies into virtual environment
 ```
 
 > [!NOTE]
-> Alternatively, if you are using Linux to do your virtual environment, then you should do:
+> Alternatively, if you are using MacOS/Linux to do your virtual environment, then you should do:
 >
 > ```
 > python3 -m venv .venv
@@ -39,23 +39,28 @@ To install it, you may find the appropriate installation for your operating syst
 
 ## Airflow 💨
 
-To run airflow, we are only able to run it on Linux/Mac.
+To run airflow, we have 2 methods: Airflow Server (direct) or Docker.
 
-To set-up the necessary tables, do:
+### Airflow Server 🌐
+
+For this, we are only able to run it on Linux/Mac.
+
+1.  Set-up the necessary tables:
 
 ```bash
 airflow db migrate
 ```
 
-Then, to run the airflow server, do:
+2.  Then, run the airflow server:
 
 ```bash
 airflow api-server -p 8080 -H localhost
 ```
 
-From there, click the URL and login using the details found in the system messages.
+3.  From there, click the URL and login using the details found in the system messages.
 
-> [!NOTE] For windows, we will need to install WSL (Windows Subsystem for Linux).
+> [!NOTE]
+> For windows, we will need to install WSL (Windows Subsystem for Linux).
 > This can be easily done by doing `wsl --install`.
 
 ### Docker 🐳
@@ -64,25 +69,33 @@ Alternatively, an easier way of using Airflow is via Docker.
 
 The guide to do so can be found at https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html.
 
-> [!NOTE] Before this, you must ensure that Docker is installed and is running in the background.
+> [!NOTE]
+> Before this, you must ensure that Docker is installed and is running in the background.
 
-From the guide, the first step is to initialise the database, which is done so by doing:
-- ```docker compose up airflow-init``` OR
-- ```just airflow-setup```
+1. The first step is to initialise the database:
 
-From there, you can build the Airflow docker image:
-- ```docker compose build``` OR
-- ```just airflow-build```
+- `docker compose up airflow-init` OR
+- `just airflow-setup`
 
-Then you can run the following to start up Airflow:
-- ```docker compose up``` OR
-- ```just airflow-up```
+2. Build the Airflow docker image:
 
-To interact with the service, there are a few ways (https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#accessing-the-environment). One way would be to access the web UI interface at http://localhost:8080. The default account username is `airflow` with password `airflow`.
+- `docker compose build` OR
+- `just airflow-build`
 
-To tear down the Airflow Docker instance, you can do:
-- ```docker compose down -v --rmi all``` OR
-- ```just airflow-down```
+3. Run the following to start up Airflow:
+
+- `docker compose up` OR
+- `just airflow-up`
+
+4. To interact with the service, there are a few ways (https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#accessing-the-environment).
+
+- One way would be to access the web UI interface at http://localhost:8080.
+- The default account username is `airflow` with password `airflow`.
+
+5. To tear down the Airflow Docker instance, you can do:
+
+- `docker compose down -v --rmi all` OR
+- `just airflow-down`
 
 ## Development 🛠️
 
