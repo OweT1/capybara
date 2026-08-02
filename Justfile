@@ -1,6 +1,6 @@
-prudential: 
-  uv run python -m src.policies.prudential.link_extraction
-  uv run python -m src.policies.prudential.file_extraction
+great-eastern:
+  uv run python -m src.policies.great_eastern.link_extraction
+  uv run python -m src.policies.great_eastern.file_extraction
 
 airflow-setup: 
   docker compose up airflow-init

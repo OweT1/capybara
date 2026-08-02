@@ -1,5 +1,5 @@
 """
-Airflow DAG for policy extraction for Prudential.
+Airflow DAG for policy extraction for Great Eastern.
 """
 
 from __future__ import annotations
@@ -16,16 +16,16 @@ default_args = {
 
 # 2. Instantiate the DAG using the @dag decorator
 @dag(
-    dag_id="prudential_files_download",
+    dag_id="great_eastern_files_download",
     default_args=default_args,
-    description="An ETL Pipeline to scrap and download policy PDF files from Prudential",
+    description="An ETL Pipeline to scrap and download policy PDF files from Great Eastern",
     schedule="@daily",  # Runs once a day at midnight
     start_date=datetime(2026, 1, 1),  # Start tracking execution from this date
     catchup=False,  # Prevents backfilling missed historical runs
     tags=["production", "etl"],
 )
-def prudential_etl_workflow():
-    from src.policies.prudential import (
+def great_eastern_etl_workflow():
+    from src.policies.great_eastern import (
         extract_links as _extract_links,
         extract_files as _extract_files,
     )
@@ -42,4 +42,4 @@ def prudential_etl_workflow():
     extract_files()
 
 
-prudential_etl_workflow()
+great_eastern_etl_workflow()
