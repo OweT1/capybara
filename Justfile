@@ -1,4 +1,8 @@
+sync:
+  uv sync --all-extras
+
 great-eastern:
+  just sync
   uv run python -m src.policies.great_eastern.link_extraction
   uv run python -m src.policies.great_eastern.file_extraction
 
