@@ -1,4 +1,5 @@
 import os
+import threading
 from pathlib import Path
 from typing import Any
 
@@ -11,6 +12,16 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 DEFAULT_TIMEOUT = 30
+
+_thread_local = threading.local()
+
+
+def get_session() -> requests.Session:
+    session = getattr(_thread_local, "session", None)
+    if session is None:
+        session = requests.Session()
+        _thread_local.session = session
+    return session
 
 
 # --- General Helper function --- #
@@ -32,7 +43,7 @@ def save_dict_to_yaml_file(file_name: str, dict_item: dict) -> None:
 
 # --- BeautifulSoup Scrapping - Static JS --- #
 def get_pdf_files_from_webpage(link: str) -> list[str]:
-    response = requests.get(link, timeout=DEFAULT_TIMEOUT)
+    response = get_session().get(link, timeout=DEFAULT_TIMEOUT)
     if not response.ok:
         raise ValueError(f"Link not working... {link}")
 
@@ -48,18 +59,23 @@ def get_pdf_files_from_webpage(link: str) -> list[str]:
 def download_pdf_file_from_link(
     link: str, category: str, subcategory: str, policy: str
 ) -> None:
+    link_name = get_name_from_link(link)
+    output_folder_dir = f"data/raw/{category}/{subcategory}/{policy}"
+    output_file_dir = f"{output_folder_dir}/{link_name}.pdf"
+
+    if os.path.exists(output_file_dir):
+        logger.info(f"File already exists, skipping: {output_file_dir}")
+        return
+
     try:
-        response = requests.get(link, timeout=DEFAULT_TIMEOUT)
+        response = get_session().get(link, timeout=DEFAULT_TIMEOUT)
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
         raise requests.exceptions.RequestException(
             f"Error reading url {link}: {e}"
         ) from e
 
-    link_name = get_name_from_link(link)
-    output_folder_dir = f"data/raw/{category}/{subcategory}/{policy}"
     os.makedirs(output_folder_dir, exist_ok=True)
-    output_file_dir = f"{output_folder_dir}/{link_name}.pdf"
     with open(output_file_dir, "wb") as file:
         file.write(response.content)
     logger.info(f"File has been downloaded at {output_file_dir}")
