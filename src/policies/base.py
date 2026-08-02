@@ -42,6 +42,7 @@ class PolicyScraper(ABC):
 
     def extract_pdf_links_from_policy_page(self, policy_link: str) -> list[str]:
         """Return PDF URLs found on a policy page (default: anchors ending in .pdf)."""
+        logger.debug(f"[{self.provider_name}] Scraping PDF links from {policy_link}")
         response = self.session.get(policy_link, timeout=DEFAULT_TIMEOUT)
         if not response.ok:
             raise ValueError(f"Link not working... {policy_link}")
@@ -53,6 +54,16 @@ class PolicyScraper(ABC):
             if href and href.lower().endswith(".pdf"):
                 pdf_links.append(href)
         return pdf_links
+
+    @staticmethod
+    def _count_policies(policy_links: dict) -> int:
+        """Return the total number of policies in a policy links tree."""
+        return sum(
+            len(subcategory_policies)
+            for company in policy_links.values()
+            for category in company["policies"].values()
+            for subcategory_policies in category.values()
+        )
 
     # --- Link extraction --- #
     def extract_policy_links(self, category_links: dict) -> dict:
@@ -67,6 +78,9 @@ class PolicyScraper(ABC):
                 for subcategory, subcategory_content in subcategories.items():
                     subcategory_node = category_node.setdefault(subcategory, {})
                     subcategory_link = subcategory_content["link"]
+                    logger.info(
+                        f"[{self.provider_name}] Scraping subcategory '{subcategory}' ({category})"
+                    )
                     for policy_link in self.extract_policy_links_from_category_page(
                         subcategory_link
                     ):
@@ -74,18 +88,29 @@ class PolicyScraper(ABC):
                         subcategory_node.setdefault(policy_name, {})["link"] = (
                             policy_link
                         )
+                    logger.info(
+                        f"[{self.provider_name}] Found {len(subcategory_node)} policy link(s) for subcategory '{subcategory}'"
+                    )
         return output
 
     def run_link_extraction(self) -> None:
         """Scrape policy page links and save them to the policy links YAML."""
         logger.info(f"[{self.provider_name}] Extracting links from webpage...")
         category_links = load_yaml_file(self.category_links_path)
+        logger.info(
+            f"[{self.provider_name}] Loaded {len(category_links)} provider(s) from {self.category_links_path}"
+        )
         policy_links = self.extract_policy_links(category_links)
+        total_policies = self._count_policies(policy_links)
+        logger.info(
+            f"[{self.provider_name}] Extracted {total_policies} policy link(s) in total"
+        )
         save_dict_to_yaml_file(self.policy_links_path, policy_links)
 
     # --- File extraction --- #
     def _download_pdf(self, task: tuple[str, str]) -> None:
         link, output_path = task
+        logger.debug(f"[{self.provider_name}] Downloading {link} to {output_path}")
         try:
             download_file(self.session, link, output_path)
         except Exception as e:  # noqa: BLE001 - keep one bad download from failing the whole batch
@@ -100,8 +125,14 @@ class PolicyScraper(ABC):
                 for subcategory, policies in subcategories.items():
                     for policy, policy_content in policies.items():
                         policy_link = policy_content["link"]
+                        logger.debug(
+                            f"[{self.provider_name}] Scraping PDFs for policy '{policy}' ({category}/{subcategory})"
+                        )
                         pdf_links = list(
                             set(self.extract_pdf_links_from_policy_page(policy_link))
+                        )
+                        logger.debug(
+                            f"[{self.provider_name}] Found {len(pdf_links)} PDF link(s) for policy '{policy}'"
                         )
                         for pdf_link in pdf_links:
                             full_pdf_link = urljoin(company_url, pdf_link)
@@ -114,6 +145,9 @@ class PolicyScraper(ABC):
                             )
                             download_tasks.append((full_pdf_link, output_path))
 
+        logger.info(
+            f"[{self.provider_name}] Queued {len(download_tasks)} PDF download(s)"
+        )
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             executor.map(self._download_pdf, download_tasks)
 
@@ -123,6 +157,10 @@ class PolicyScraper(ABC):
             f"[{self.provider_name}] Loading and extracting PDF files from links..."
         )
         policy_links = load_yaml_file(self.policy_links_path)
+        total_policies = self._count_policies(policy_links)
+        logger.info(
+            f"[{self.provider_name}] Loaded {total_policies} policy page(s) from {self.policy_links_path}"
+        )
         self.extract_pdf_files(policy_links)
         logger.info(
             f"[{self.provider_name}] Completed extraction of PDF files from links!"
